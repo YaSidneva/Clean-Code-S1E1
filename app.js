@@ -35,7 +35,7 @@ var createNewTaskElement=function(taskString){
     listItem.className = "item";
 
     label.innerText=taskString;
-    label.className='task';
+    label.className='task label';
 
     //Each elements, needs appending
     checkBox.type="checkbox";
@@ -126,10 +126,12 @@ var deleteTask=function(){
 //Mark task completed
 var taskCompleted=function(){
     console.log("Complete Task...");
-
+    
+    
     //Append the task list item to the #completed-tasks
     var listItem=this.parentNode;
     completedTasksHolder.appendChild(listItem);
+    listItem.querySelector(".task").classList.add("completed-tasks-label");
     bindTaskEvents(listItem, taskIncomplete);
 
 }
@@ -137,11 +139,12 @@ var taskCompleted=function(){
 
 var taskIncomplete=function(){
     console.log("Incomplete Task...");
-//Mark task as incomplete.
+//Mark task as incomplete. 
     //When the checkbox is unchecked
     //Append the task list item to the #incompleteTasks.
     var listItem=this.parentNode;
     incompleteTaskHolder.appendChild(listItem);
+    listItem.querySelector(".task").classList.remove("completed-tasks-label");
     bindTaskEvents(listItem,taskCompleted);
 }
 

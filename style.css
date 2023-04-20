@@ -130,7 +130,7 @@ button{
   margin: 0 10px;
 }
 
-.item > label {
+.item > .label {
   padding-left: 10px;
   box-sizing: border-box;
   font-size: 18px;
